@@ -27,3 +27,6 @@ dist-ssr
 firebase.json
 .firebase
 .firebaserc
+
+# .env files (for firebase api keys)
+.env
