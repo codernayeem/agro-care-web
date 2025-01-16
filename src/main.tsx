@@ -11,6 +11,7 @@ import Cart from "./components/Cart.tsx";
 import NewsDetails from "./components/NewsDetails.tsx";
 import LoginPage from "./components/Login.tsx";
 import NotFoundPage from "./components/NotFoundPage.tsx";
+import MarketSection from "./components/Market/MarketSection.tsx";
 TimeAgo.addDefaultLocale(en);
 TimeAgo.addLocale(bn);
 
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")!).render(
       {/* Main App Routes */}
       <Route path="/" element={<App />}>
         <Route index element={<NewsSection />} />
+        <Route path="market" element={<MarketSection />} />
         <Route path="news" element={<NewsSection />} />
         <Route path="news/:id" element={<NewsDetails />} />
         <Route path="cart" element={<Cart />} />
