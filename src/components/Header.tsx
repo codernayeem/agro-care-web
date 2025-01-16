@@ -1,17 +1,10 @@
-import React from "react";
 import ThemeToggler from "./ThemeToggler";
+import { Link } from "react-router";
 
-interface HeaderProps {
-  setActivePage: (page: string) => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ setActivePage }) => {
+const Header = () => {
   return (
     <header className="bg-green-700 text-white p-2 flex justify-between items-center">
-      <h1
-        className="text-xl font-semibold cursor-pointer"
-        onClick={() => setActivePage("home")}
-      >
+      <Link to="/" className="text-xl font-semibold cursor-pointer">
         <div className="flex items-center space-x-2">
           <img
             src="/favicon.png"
@@ -20,31 +13,21 @@ const Header: React.FC<HeaderProps> = ({ setActivePage }) => {
           />
           <p>Agro Care</p>
         </div>
-      </h1>
-      <nav className="flex items-center space-x-4">
+      </Link>
+      <nav className="hidden sm:flex items-center space-x-4">
         <ThemeToggler />
-        <button
-          className="hover:underline"
-          onClick={() => setActivePage("home")}
-        >
+        <Link to="/" className="hover:underline">
           Home
-        </button>
-        <button
-          className="hover:underline"
-          onClick={() => setActivePage("allProducts")}
-        >
+        </Link>
+        <Link to="/" className="hover:underline">
           All Products
-        </button>
-        <button
-          className="hover:underline"
-          onClick={() => setActivePage("cart")}
-        >
+        </Link>
+        <Link to="/cart" className="hover:underline">
           Cart
-        </button>
-        {/* profile icon button */}
-        <button
+        </Link>
+        <Link
+          to="/profile"
           className="hover:ring-2 hover:ring-green-500 rounded-full p-1 trasition duration-300 ease-in-out"
-          onClick={() => setActivePage("profile")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ setActivePage }) => {
               </g>
             </g>
           </svg>
-        </button>
+        </Link>
       </nav>
     </header>
   );

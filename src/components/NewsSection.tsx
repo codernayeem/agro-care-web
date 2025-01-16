@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { collection, getDocs, Timestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig.ts";
 import ReactTimeAgo from "react-time-ago";
+import { Link } from "react-router";
 
 const NewsSection = () => {
   const [data, setData] = useState([]);
@@ -51,39 +52,41 @@ const NewsSection = () => {
             content: string;
           };
           return (
-            <div
-              key={data.id}
-              className="bg-white dark:bg-gray-900 hover:bg-gray-200 hover:shadow-lg dark:hover:bg-gray-800 shadow-md rounded-lg overflow-hidden hover:scale-[1.01] transition duration-200 ease-in-out cursor-pointer font-notosans animate-fadeInUp"
-            >
-              <img
-                src={data.imageUrl}
-                alt={data.title}
-                className="w-full h-64 sm:h-48 object-cover"
-              />
-              <div className="p-3">
-                <h3 className="text-md font-semibold mb-1">{data.title}</h3>
-                <div className="flex items-center space-x-2 mb-2 ">
-                  <div>
-                    <span className="inline-block bg-green-900 text-white text-xs px-2 py-1 rounded">
-                      {data.category}
-                    </span>
+            <Link to={`/news/${data.id}`} className="w-full">
+              <div
+                key={data.id}
+                className="bg-white dark:bg-gray-900 hover:bg-gray-200 hover:shadow-lg dark:hover:bg-gray-800 shadow-md rounded-lg overflow-hidden hover:scale-[1.01] transition duration-200 ease-in-out cursor-pointer font-notosans animate-fadeInUp"
+              >
+                <img
+                  src={data.imageUrl}
+                  alt={data.title}
+                  className="w-full h-64 sm:h-48 object-cover"
+                />
+                <div className="p-3">
+                  <h3 className="text-md font-semibold mb-1">{data.title}</h3>
+                  <div className="flex items-center space-x-2 mb-2 ">
+                    <div>
+                      <span className="inline-block bg-green-900 text-white text-xs px-2 py-1 rounded">
+                        {data.category}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 text-sm">
+                      <ReactTimeAgo
+                        date={data.datetime.toDate()}
+                        locale="bn-BD"
+                      />
+                    </p>
                   </div>
-                  <p className="text-gray-600 text-sm">
-                    <ReactTimeAgo
-                      date={data.datetime.toDate()}
-                      locale="bn-BD"
-                    />
-                  </p>
+                  <p
+                    className="text-gray-500 text-sm"
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        data.content.split(" ").slice(0, 15).join(" ") + "...",
+                    }}
+                  ></p>
                 </div>
-                <p
-                  className="text-gray-500 text-sm"
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      data.content.split(" ").slice(0, 15).join(" ") + "...",
-                  }}
-                ></p>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
