@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+font-family: 'NotoSansBengali';
+src: url('/fonts/NotoSansBengali-VariableFont_wdth,wght.ttf') format('truetype');
+}
+
+/* root document */
+body {
+    @apply bg-white dark:bg-gray-900 text-gray-950 dark:text-white font-sans transition-colors duration-200;
+}
