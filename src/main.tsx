@@ -9,18 +9,24 @@ import bn from "javascript-time-ago/locale/bn";
 import NewsSection from "./components/NewsSection.tsx";
 import Cart from "./components/Cart.tsx";
 import NewsDetails from "./components/NewsDetails.tsx";
+import LoginPage from "./components/Login.tsx";
+import NotFoundPage from "./components/NotFoundPage.tsx";
 TimeAgo.addDefaultLocale(en);
 TimeAgo.addLocale(bn);
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
-    <App>
-      <Routes>
+    <Routes>
+      {/* Main App Routes */}
+      <Route path="/" element={<App />}>
         <Route index element={<NewsSection />} />
-        <Route path="/news" element={<NewsSection />} />
-        <Route path="/news/:id" element={<NewsDetails />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </App>
+        <Route path="news" element={<NewsSection />} />
+        <Route path="news/:id" element={<NewsDetails />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+      {/* Login Route */}
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
   </BrowserRouter>
 );

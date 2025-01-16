@@ -16,7 +16,9 @@ const Sidebar = () => {
         <ul>
           <ListItem to="/">Home</ListItem>
           <hr />
-          <ListItem to="/">All Products</ListItem>
+          <ListItem to="/market">Marketplace</ListItem>
+          <hr />
+          <ListItem to="/community">Community</ListItem>
           <hr />
           <ListItem to="/cart">Cart</ListItem>
         </ul>

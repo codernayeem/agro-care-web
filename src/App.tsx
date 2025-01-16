@@ -1,11 +1,8 @@
+import { Outlet } from "react-router";
 import Header from "./components/Header";
 import Sidebar from "./components/SideBar";
 
-interface AppProps {
-  children?: React.ReactNode;
-}
-
-function App({ children }: AppProps) {
+function App() {
   return (
     <>
       <Header />
@@ -13,7 +10,9 @@ function App({ children }: AppProps) {
         <div className="flex">
           <Sidebar />
         </div>
-        <div className="flex-auto">{children}</div>
+        <div className="flex-auto">
+          <Outlet></Outlet>
+        </div>
       </div>
     </>
   );
