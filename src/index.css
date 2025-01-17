@@ -11,3 +11,32 @@ src: url('/fonts/NotoSansBengali-VariableFont_wdth,wght.ttf') format('truetype')
 body {
     @apply bg-white dark:bg-gray-900 text-gray-950 dark:text-white font-sans ;
 }
+
+/* Upper Loading Bar */
+.loading-bar-container {
+    @apply fixed top-0 left-0 w-full h-1 bg-gray-300 dark:bg-gray-800 overflow-hidden z-50;
+}
+
+.loading-bar {
+    @apply w-1/2 h-full bg-green-600;
+    animation: loading-animation 3s infinite;
+}
+
+/* forward & backward animation */
+@keyframes loading-animation {
+    0% {
+        transform: translateX(-50%);
+    }
+    25% {
+        transform: translateX(50%);
+    }
+    50% {
+        transform: translateX(150%);
+    }
+    75% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
