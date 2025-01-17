@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs, Timestamp } from "firebase/firestore";
-import { db } from "../firebaseConfig.ts";
+import { db } from "../services/firebaseService.ts";
 import ReactTimeAgo from "react-time-ago";
 import { Link } from "react-router";
 

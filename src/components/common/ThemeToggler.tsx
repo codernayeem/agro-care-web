@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-import useDarkMode from "../useDarkMode";
+import useDarkMode from "../../hooks/useDarkMode";
 import MoonIcon from "./MoonIcon";
 import SunIcon from "./SunIcon";
 

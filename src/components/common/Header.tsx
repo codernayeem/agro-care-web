@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { auth } from "../firebaseConfig";
+import { auth } from "../../services/firebaseService";
 import ThemeToggler from "./ThemeToggler";
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";

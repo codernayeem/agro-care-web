@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebaseConfig.ts";
+import { db } from "../services/firebaseService.ts";
+import { Product } from "../types/products.ts";
 // import { Link } from "react-router";
 
 const MarketSection = () => {
@@ -44,14 +45,7 @@ const MarketSection = () => {
       <h2 className="text-xl mb-4">See Our Collections</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
         {data.map((item) => {
-          const data = item as {
-            id: string;
-            name: string;
-            image_url: string;
-            category: string;
-            original_price: number;
-            current_price: number;
-          };
+          const data = item as Product;
           return (
             // <Link to={`/product_details/${data.id}`} className="w-full h-full">
             <div

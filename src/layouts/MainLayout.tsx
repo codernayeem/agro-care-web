@@ -1,7 +1,7 @@
+import Header from "../components/common/Header";
+import Sidebar from "../components/common/SideBar";
 import { Outlet } from "react-router";
-import Header from "./components/Header";
-import Sidebar from "./components/SideBar";
-import { useAuth } from "./contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 
 function App() {
   const { loading } = useAuth();
