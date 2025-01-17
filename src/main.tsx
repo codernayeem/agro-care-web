@@ -16,6 +16,7 @@ import { AuthProvider } from "./contexts/AuthContext.tsx";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 import bn from "javascript-time-ago/locale/bn";
+import Home from "./pages/Home.tsx";
 TimeAgo.addDefaultLocale(en);
 TimeAgo.addLocale(bn);
 
@@ -26,7 +27,7 @@ createRoot(document.getElementById("root")!).render(
         <Routes>
           {/* Main App Routes */}
           <Route path="/" element={<App />}>
-            <Route index element={<NewsSection />} />
+            <Route index element={<Home />} />
             <Route path="market" element={<MarketSection />} />
             <Route path="news" element={<NewsSection />} />
             <Route path="news/:id" element={<NewsDetails />} />

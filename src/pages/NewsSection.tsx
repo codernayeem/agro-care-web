@@ -52,7 +52,7 @@ const NewsSection = () => {
             content: string;
           };
           return (
-            <Link to={`/news/${data.id}`} className="w-full">
+            <Link key={data.id} to={`/news/${data.id}`} className="w-full">
               <div
                 key={data.id}
                 className="bg-white dark:bg-gray-900 hover:bg-gray-200 hover:shadow-lg dark:hover:bg-gray-800 shadow-md rounded-lg overflow-hidden hover:scale-[1.01] transition duration-200 ease-in-out cursor-pointer font-notosans animate-fadeInUp"

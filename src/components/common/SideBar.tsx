@@ -15,11 +15,11 @@ const Sidebar = () => {
       <aside className="text-gray-500 w-48 p-4">
         <ul>
           <ListItem to="/">Home</ListItem>
-          <hr />
+          <hr className="border-gray-300 dark:border-gray-700" />
           <ListItem to="/market">Marketplace</ListItem>
-          <hr />
+          <hr className="border-gray-300 dark:border-gray-700" />
           <ListItem to="/community">Community</ListItem>
-          <hr />
+          <hr className="border-gray-300 dark:border-gray-700" />
           <ListItem to="/cart">Cart</ListItem>
         </ul>
       </aside>
